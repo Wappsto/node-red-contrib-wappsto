@@ -1,0 +1,460 @@
+<script type="text/x-red" data-template-name="wappsto-value">
+  <div class="form-row">
+    <label for="node-config-input-name">
+      <i class="fa fa-tag"></i>
+      <span data-i18n="wappsto.value.label.name"></span>
+    </label>
+    <input type="text" id="node-config-input-name" data-i18n="[placeholder]wappsto.value.placeholder.name">
+  </div>
+
+  <div class="form-row">
+    <label for="node-config-input-email">
+      <i class="fa fa-user"></i>
+      <span data-i18n="wappsto.value.label.email"></span>
+    </label>
+    <input type="text" id="node-config-input-email" data-i18n="[placeholder]wappsto.value.placeholder.email" value="a@a.a">
+  </div>
+
+  <div class="form-row">
+    <label for="node-config-input-password">
+      <i class="fa fa-lock"></i>
+      <span data-i18n="wappsto.value.label.password"></span>
+    </label>
+    <input type="password" id="node-config-input-password" data-i18n="[placeholder]wappsto.value.placeholder.password" value="a">
+  </div>
+
+  <div class="form-row">
+    <label for="node-config-input-installationID">
+      <i class="fa fa-key"></i>
+      <span data-i18n="wappsto.value.label.installationID"></span>
+    </label>
+    <input type="text" style="width:60%" id="node-config-input-installationID" data-i18n="[placeholder]wappsto.value.placeholder.installationID">
+    <button class="editor-button" style="width:auto" id="wappsto-get-btn" data-i18n="wappsto.get.btn"></button>
+  </div>
+
+  <div class="form-row">
+    <input type="checkbox" id="node-config-input-isNew" style="opacity:1" disableda>
+    <label for="node-config-input-isNew" data-i18n="wappsto.value.label.isNew" style="opacity:1"></label>
+    <button class="editor-button" style="width:45%" id="wappsto-export-btn" data-i18n="wappsto.export.btn"></button>
+  </div>
+
+  <div class="form-row">
+    <label for="node-config-input-typee">
+      <span data-i18n="wappsto.value.label.type"></span>
+    </label>
+    <input type="text" id="node-config-input-typee" data-i18n="[placeholder]wappsto.value.placeholder.type">
+  </div>
+
+  <div class="form-row">
+    <label for="node-config-input-permission">
+      <span data-i18n="wappsto.value.label.permission.labelName"></span>
+    </label>
+    <select id="node-config-input-permission" style="width:70%">
+      <option value="r" data-i18n="wappsto.value.label.permission.r"></option>
+      <option value="w" data-i18n="wappsto.value.label.permission.w"></option>
+      <option value="rw" data-i18n="wappsto.value.label.permission.rw"></option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="node-config-input-dataType">
+      <span data-i18n="wappsto.value.label.dataType.labelName"></span>
+    </label>
+    <select id="node-config-input-dataType" style="width:70%">
+      <option value="number" data-i18n="wappsto.value.label.dataType.number.labelName"></option>
+      <option value="string" data-i18n="wappsto.value.label.dataType.string.labelName"></option>
+      <option value="blob" data-i18n="wappsto.value.label.dataType.blob.labelName"></option>
+      <option value="xml" data-i18n="wappsto.value.label.dataType.xml.labelName"></option>
+    </select>
+  </div>
+
+  <div class="form-row wappsto-select" id="wappsto-select-dataType-number">
+    <label for="wappsto-select-dataType-number-min">
+      <span data-i18n="wappsto.value.label.dataType.number.min"></span>
+    </label>
+    <input type="number" step="any" id="wappsto-select-dataType-number-min" name="min">
+    <br>
+    <label for="wappsto-select-dataType-number-max">
+      <span data-i18n="wappsto.value.label.dataType.number.max"></span>
+    </label>
+    <input type="number" step="any" id="wappsto-select-dataType-number-max" name="max">
+    <br>
+    <label for="wappsto-select-dataType-number-step">
+      <span data-i18n="wappsto.value.label.dataType.number.step"></span>
+    </label>
+    <input type="number" step="any" id="wappsto-select-dataType-number-step" name="step">
+    <br>
+    <label for="wappsto-select-dataType-number-unit">
+      <span data-i18n="wappsto.value.label.dataType.number.unit"></span>
+    </label>
+    <input type="text" id="wappsto-select-dataType-number-unit" name="unit">
+    <br>
+    <label for="wappsto-select-dataType-number-si_conversion">
+      <span data-i18n="wappsto.value.label.dataType.number.si_conversion"></span>
+    </label>
+    <input type="text" id="wappsto-select-dataType-number-si_conversion" name="si_conversion">
+  </div>
+
+  <div class="form-row wappsto-select" id="wappsto-select-dataType-string">
+    <label for="wappsto-select-dataType-string-max">
+      <span data-i18n="wappsto.value.label.dataType.string.max"></span>
+    </label>
+    <input type="number" step="any" id="wappsto-select-dataType-string-max" name="max">
+    <br>
+    <label for="wappsto-select-dataType-string-encoding">
+      <span data-i18n="wappsto.value.label.dataType.string.encoding"></span>
+    </label>
+    <input type="text" id="wappsto-select-dataType-string-encoding" name="encoding">
+  </div>
+
+  <div class="form-row wappsto-select" id="wappsto-select-dataType-blob">
+    <label for="wappsto-select-dataType-blob-max">
+      <span data-i18n="wappsto.value.label.dataType.blob.max"></span>
+    </label>
+    <input type="number" step="any" id="wappsto-select-dataType-blob-max" name="max">
+    <br>
+    <label for="wappsto-select-dataType-blob-encoding">
+      <span data-i18n="wappsto.value.label.dataType.blob.encoding"></span>
+    </label>
+    <input type="text" id="wappsto-select-dataType-blob-encoding" name="encoding">
+  </div>
+
+  <div class="form-row wappsto-select" id="wappsto-select-dataType-xml">
+    <label for="wappsto-select-dataType-xml-xsd">
+      <span data-i18n="wappsto.value.label.dataType.xml.xsd"></span>
+    </label>
+    <input type="number" id="wappsto-select-dataType-xml-xsd" name="xsd">
+    <br>
+
+    <label for="wappsto-select-dataType-xml-namespace">
+      <span data-i18n="wappsto.value.label.dataType.xml.namespace"></span>
+    </label>
+    <input type="text" id="wappsto-select-dataType-xml-namespace" name="namespace">
+  </div>
+
+  <div class="form-row wappsto-select" style="display:block">
+    <label for="node-config-input-initialValue">
+      <span data-i18n="wappsto.value.label.initialValue"></span>
+    </label>
+    <input type="text" id="node-config-input-initialValue">
+  </div>
+</script>
+
+<script type="text/x-red" data-template-name="wappsto-writer out">
+  <div class="form-row">
+    <label for="node-input-name">
+      <i class="fa fa-tag"></i>
+      <span data-i18n="wappsto.writer.label.name"></span>
+    </label>
+    <input type="text" id="node-input-name" data-i18n="[placeholder]wappsto.writer.placeholder.name">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-value">
+      <i class="fa fa-database"></i>
+      <span data-i18n="wappsto.writer.label.value"></span>
+    </label>
+    <input type="text" id="node-input-value">
+  </div>
+
+  <div class="form-row" id="form-display-type">
+    <label for="node-input-permission">
+      <span data-i18n="wappsto.writer.label.type"></span>
+    </label>
+    <select id="node-input-permission" style="width:35%">
+      <option value="w" data-i18n="wappsto.value.label.permission.w"></option>
+      <option value="r" data-i18n="wappsto.value.label.permission.r"></option>
+    </select>
+  </div>
+</script>
+
+<script type="text/x-red" data-template-name="wappsto-listener in">
+  <div class="form-row">
+    <label for="node-input-name">
+      <i class="fa fa-tag"></i>
+      <span data-i18n="wappsto.listener.label.name"></span>
+    </label>
+    <input type="text" id="node-input-name" data-i18n="[placeholder]wappsto.listener.placeholder.name">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-value">
+      <i class="fa fa-database"></i>
+      <span data-i18n="wappsto.listener.label.value"></span>
+    </label>
+    <input type="text" id="node-input-value">
+  </div>
+</script>
+
+<script type="text/javascript">
+  var validateDataTypeObj = function(v) {
+    if (this.isNew) {
+      var req = {'number': ['min', 'max', 'step']};
+      if (req[this.dataType]) {
+        for (i = 0; i < req[this.dataType].length; i++) {
+          var el = req[this.dataType][i];
+          if (!v[el] || v[el] === '') {
+            return false;
+          }
+        }
+      }
+    }
+    return true;
+  }
+
+  RED.nodes.registerType('wappsto-value', {
+    category: 'config',
+    exportable: false,
+    defaults: {
+      name: {value: ''},
+      typee: {value: ''},
+      installationID: {value: '', required: true},
+      email: {value: '', required: true},
+      password: {value: '', required: true},
+      dataType: {value: 'string'},
+      permission: {value: 'rw'},
+      isNew: {value: true},
+      dataTypeObj: {value: '', validate: validateDataTypeObj},
+      initialValue: {value: ''}
+    },
+    credentials: {
+      password: {type: 'password', required: true}
+    },
+    label: function() {
+      return this.name || '';
+    },
+    oneditprepare: function() {
+      var self = this;
+
+      if (this.dataTypeObj) {
+        $('[id^="wappsto-select-dataType-'+this.dataType+'-"]').each(function(i, el) {
+          el.value = self.dataTypeObj[el.name] || '';
+        });
+      }
+
+      var isNew = $('#node-config-input-isNew');
+      var check = $.map(['min', 'max', 'step'], function(e, i) {
+        return $('#wappsto-select-dataType-number-'+e).blur(function() {
+          if (isNew.prop('checked') && this.value === '') {
+            $(this).addClass('input-error');
+          } else {
+            $(this).removeClass('input-error');
+          }
+        })[0];
+      });
+
+      isNew.change(function(el) {
+        $(check).blur();
+        $('[id^="wappsto-select-dataType-"] input, #node-config-input-dataType, '+
+          '#node-config-input-permission, #node-config-input-initialValue'
+        ).prop('disabled', !isNew.prop('checked'));
+      })
+      isNew.trigger('change');
+
+      var dataType = $('#node-config-input-dataType');
+      dataType.change(function(el) {
+        $('[class^="form-row wappsto-select"]:not([style="display:block"])').hide();
+        $('#wappsto-select-dataType-'+dataType.val()).show();
+      });
+      dataType.trigger('change');
+
+      var clicked = false;
+      $('#wappsto-export-btn').click(function() {
+        if (!clicked) {
+          clicked = true;
+          var btn = this;
+          $.ajax({type: 'POST', url: '/wappsto/export',
+            data: {
+              id: self.id,
+              installationID: self.installationID
+            },
+            success: function(body) {
+              $(btn).text(self._(body)).addClass('uploaded');
+              setTimeout(function() {
+                $(btn).text(self._('wappsto.export.btn')).removeClass('uploaded');
+                clicked = false;
+              }, 3000)
+            },
+            error: function(body) {
+              $(btn).text(self._(body.responseText)).addClass('err');
+              setTimeout(function() {
+                $(btn).text(self._('wappsto.export.btn')).removeClass('err');
+                clicked = false;
+              }, 3000)
+            }
+          });
+        }
+      });
+
+      var clicked2 = false;
+      $('#wappsto-get-btn').click(function() {
+        var input = $('#node-config-input-installationID');
+        if (!clicked2 && !input.val()) {
+          clicked2 = true;
+          $.ajax({type: 'POST', url: '/wappsto/create',
+            data: {
+              id: self.id,
+              email: $('#node-config-input-email').val(),
+              password: $('#node-config-input-password').val()
+            },
+            success: function(body) {
+              input.val(body).removeClass('input-error');
+              clicked2 = false;
+            },
+            error: function(body) {
+              clicked2 = false;
+            }
+          });
+        }
+      });
+    },
+    oneditsave: function() {
+      var obj = {};
+      var selected = $('#node-config-input-dataType').val();
+      $('[id^="wappsto-select-dataType-'+selected+'-"]').each(function(i, e) {
+        if (['min', 'max', 'step'].includes(e.name)) {
+          if (!isNaN(parseFloat(e.value))) {
+            obj[e.name] = +e.value;
+          }
+        } else {
+          obj[e.name] = e.value.toString();
+        }
+      });
+      this.dataTypeObj = obj;
+    }
+  });
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('wappsto-writer out', {
+    category: 'output',
+    color: '#FFCC66',
+    paletteLabel: 'Wappsto',
+    inputs: 1,
+    outputs: 0,
+    align: 'right',
+    icon: 'db.png',
+    defaults: {
+      value: {type: 'wappsto-value', required: true},
+      name: {value: ''},
+      permission: {value: 'w'}
+    },
+    label: function() {
+      return this.name || this._('wappsto.writer.nodeName');
+    },
+    labelStyle: function() {
+      return this.name ? 'node_label_italic' : '';
+    }
+  });
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('wappsto-listener in', {
+    category: 'input',
+    color: '#FFCC66',
+    paletteLabel: 'Wappsto',
+    inputs: 0,
+    outputs: 2,
+    icon: 'arrow-in.png',
+    defaults: {
+      value: {type: 'wappsto-value', required: true},
+      name: {value: ''}
+    },
+    outputLabels: function(i) {
+      return this._('wappsto.listener.outputs.'+['report', 'control'][i]);
+    },
+    label: function() {
+      return this.name || this._('wappsto.listener.nodeName');
+    },
+    labelStyle: function() {
+      return this.name ? 'node_label_italic' : '';
+    }
+  });
+</script>
+
+<script type="text/x-red" data-help-name="wappsto-value">
+  <p>This configuration node is used for finding or creating a <a href="https://developer.wappsto.com/" target="_new"><i>value</i></a>
+    object that stores your data. You can directly access and manage the data in
+    <a href="https://store.wappsto.com/application/1e7ad361-202a-4f68-ab34-f147fb8e747e" target="_new">My Data</a> wapp.</p>
+
+  <h3>Details</h3>
+  <p><b>Name:</b> represents the name of your <i>value</i> object and configuration node.</p>
+  <p><b>Email:</b> provide email that is used to log-in into your <i>Wappsto</i> account.</p>
+  <p><b>Password:</b> provide password that is used to log-in into your <i>Wappsto</i> account.</p>
+  <p><b>Installation:</b> it can be obtained by either creating a new installation, e.g. in
+    <a href="https://store.wappsto.com/application/1e7ad361-202a-4f68-ab34-f147fb8e747e" target="_new">Wapp Creator</a>
+    or just by clicking the <i>Get</i> button (rememer to fill out corectly the <i>Email</i> & <i>Password</i> fields).</p>
+  <p><b>New Value:</b> if ticked it will create a new <i>value</i> object, otherwise it will try to find one based on the provided <i>type</i>,
+    if not found, a notification is sent.</p>
+  <p><b>Upload:</b> once you deploy your flows, you can upload them to <i>Wappsto</i> and run them there.
+    You can write additional code, view and modify the uploaded flows in
+    <a href="https://store.wappsto.com/application/1e7ad361-202a-4f68-ab34-f147fb8e747e" target="_new">Wapp Creator</a>.</p>
+  <p><b>Type:</b> it could be e.g. temperature, humididty, lamp, location, etc.</p>
+  <p><b>Permission:</b> based on the choice, <i>state</i> object(s) will be created under the <i>value</i> object.</p>
+  <p><b>Data type:</b> defines your value data type.</p>
+  <ul>
+    <p><li><b>Number:</b></li></p>
+    <p><b>Min:</b> Minimum number allowed.</p>
+    <p><b>Max:</b> Maximum number allowed.</p>
+    <p><b>Step:</b> Step size.</p>
+    <p><b>Unit:</b> A unit of measurement, e.g. &#8451;.</p>
+    <p><b>SI Conversion:</b> Conversion to other formats.</p>
+  </ul>
+  <ul>
+    <p><li><b>String/Blob:</b></li></p>
+    <p><b>Max:</b> Maximum length.</p>
+    <p><b>Encoding:</b> String encoding.</p>
+  </ul>
+  <ul>
+    <p><li><b>XML:</b></li></p>
+    <p><b>XSD:</b> XML schema definition.</p>
+    <p><b>Namespace:</b> XML namespace.</p>
+  </ul>
+  <p><b>Initial value:</b> The first data to store in <i>state</i> object(s).</p>
+</script>
+
+<script type="text/x-red" data-help-name="wappsto-writer out">
+  <p>This node provides a simple way to send data from <code>msg.payload</code> to <a href="https://wappsto.com" target="_new">Wappsto</a>.</p>
+  <p>To start, just add a new <i>Value</i>.</p>
+
+  <h3>Details</h3>
+  <p><b>Name:</b> represents the name of your node.</p>
+  <p><b>Value:</b> description of your data.</p>
+  <p><b>Write to:</b> select where your data should be sent to.</p>
+</script>
+
+<script type="text/x-red" data-help-name="wappsto-listener in">
+  <p>This node listens to stream events coming from <a href="https://wappsto.com" target="_new">Wappsto</a> and passes
+    the incoming data to <code>msg.payload</code> to the related output pin, depending on where the data was changed originally.</p>
+  <p>To start, just add a new <i>Value</i>.</p>
+  <p>When the node receives a stream event, the node status will be set to <i>Received data</i>.</p>
+
+  <h3>Details</h3>
+  <p><b>Name:</b> represents the name of your node.</p>
+  <p><b>Value:</b> description of your data.</p>
+</script>
+
+<style>
+  input[type='checkbox'] {
+    width: auto;
+    vertical-align: top;
+    margin: 9.5px 5px 0 103px;
+  }
+
+  input[type='checkbox'] + label {
+    width: auto;
+    margin-right: 25px;
+  }
+
+  .wappsto-select {
+    padding-left: 110px;
+    display: none;
+    margin-bottom: 0px;
+  }
+
+  input[id^='wappsto-select-dataType-'],
+  #node-config-input-initialValue {
+    width: 60%;
+    margin-bottom: 7px;
+  }
+</style>

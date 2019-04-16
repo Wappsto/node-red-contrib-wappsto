@@ -1,0 +1,40 @@
+{
+  "name": "node-red-contrib-wappsto",
+  "version": "0.0.1",
+  "description": "Node-RED nodes that enable communication with Wappsto.",
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Seluxit A/S",
+    "email": "developer@wappsto.com",
+    "url": "https://wappsto.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wappsto/node-red-contrib-wappsto.git"
+  },
+  "homepage": "https://github.com/Wappsto/node-red-contrib-wappsto#readme",
+  "bugs": {
+    "url": "https://github.com/Wappsto/node-red-contrib-wappsto/issues"
+  },
+  "keywords": [
+    "node-red",
+    "wappsto",
+    "wapp",
+    "iot",
+    "node",
+    "seluxit"
+  ],
+  "scripts": {},
+  "node-red": {
+    "nodes": {
+      "wappsto": "index.js"
+    }
+  },
+  "dependencies": {
+    "wapp-api": "github:Wappsto/wapp-api#fix-collection-push",
+    "ws": "^6.1.2",
+    "axios": "^0.18.0",
+    "common-tags": "^1.8.0"
+  }
+}

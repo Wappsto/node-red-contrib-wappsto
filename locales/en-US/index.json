@@ -1,0 +1,101 @@
+{
+  "wappsto": {
+    "writer": {
+      "nodeName": "writer",
+      "label": {
+        "value": "Value",
+        "name": "Name",
+        "type": "Write to"
+      },
+      "placeholder": {
+        "name": "Name of your node"
+      },
+      "status": {
+        "sending": "Sending",
+        "sent": "Sent",
+        "error": "Error"
+      }
+    },
+    "listener": {
+      "nodeName": "listener",
+      "outputs": {
+        "report": "Report",
+        "control": "Control"
+      },
+      "label": {
+        "value": "Value",
+        "name": "Name"
+      },
+      "placeholder": {
+        "name": "Name of your node"
+      },
+      "status": {
+        "received": "Received data"
+      }
+    },
+    "value": {
+      "label": {
+        "installationID": "Installation",
+        "isNew": "New value",
+        "name": "Name",
+        "email": "Email",
+        "password": "Password",
+        "valueID": "Value ID",
+        "type": "Type",
+        "initialValue": "Initial value",
+        "permission": {
+          "labelName": "Permission",
+          "r": "Read (Report)",
+          "w": "Write (Control)",
+          "rw": "Read/Write (Report & Control)"
+        },
+        "dataType": {
+          "labelName": "Data type",
+          "number": {
+            "labelName": "Number",
+            "min": "Min.",
+            "max": "Max.",
+            "step": "Step",
+            "unit": "Unit",
+            "si_conversion": "SI Conversion"
+          },
+          "string": {
+            "labelName": "String",
+            "max": "Max.",
+            "encoding": "Encoding"
+          },
+          "blob": {
+            "labelName": "Blob",
+            "max": "Max.",
+            "encoding": "Encoding"
+          },
+          "xml": {
+            "labelName": "XML",
+            "xsd": "XSD",
+            "namespace": "Namespace"
+          }
+        },
+        "type_existing": "Type"
+      },
+      "placeholder": {
+        "installationID": "Installation ID",
+        "name": "Name",
+        "email": "Wappsto Email",
+        "password": "Wappsto Password",
+        "type": "Value type",
+        "period": "Period",
+        "delta": "Delta",
+        "type_existing": "Value type"
+      }
+    },
+    "export": {
+      "btn": "Upload flows to Wappsto",
+      "ok": "Uploaded",
+      "clickDeploy": "Deploy your flow",
+      "tryAgain": "Try once again"
+    },
+    "get": {
+      "btn": "Get"
+    }
+  }
+}
