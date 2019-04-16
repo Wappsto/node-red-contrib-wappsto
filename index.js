@@ -2,7 +2,7 @@ module.exports = RED => {
   'use strict';
 
   var API = require('./lib');
-  const baseUrl = process.env.baseUrl || 'https://dev.wappsto.com';
+  const baseUrl = process.env.baseUrl || 'https://wappsto.com';
   const installations = {};
   const valueNodes = {};
 
