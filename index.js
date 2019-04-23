@@ -99,14 +99,16 @@ module.exports = RED => {
         api.wappsto && api.wappsto.wStream.close();
         delete installations[appID];
       }
-      return api;
     }
 
     let listeners = [];
     let oldAppID = valueNodes[data.id];
     if (oldAppID && oldAppID !== data.installationID) {
-      let oldApi = removeValue(oldAppID);
-      listeners = oldApi.listeners('msg:'+data.value);
+      removeValue(oldAppID);
+      let oldApi = installations[oldAppID];
+      if (oldApi) {
+        listeners = oldApi.listeners('msg:'+data.value);
+      }
     }
     valueNodes[data.id] = data.installationID;
 
