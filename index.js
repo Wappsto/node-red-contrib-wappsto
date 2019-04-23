@@ -117,6 +117,7 @@ module.exports = RED => {
         appID: data.installationID,
         email: data.email,
         password: this.credentials.password,
+        sessionID: process.env.sessionID
       });
       installations[data.installationID] = api;
       api.init().then(e => {}).catch(e => {
