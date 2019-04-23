@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-wappsto",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Node-RED nodes that enable communication with Wappsto.",
   "main": "index.js",
   "license": "Apache-2.0",
@@ -32,7 +32,7 @@
     }
   },
   "dependencies": {
-    "wapp-api": "github:Wappsto/wapp-api#fix-collection-push",
+    "wapp-api": "^1.1.4",
     "ws": "^6.1.2",
     "axios": "^0.18.0",
     "common-tags": "^1.8.0"

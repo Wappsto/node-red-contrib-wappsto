@@ -1,36 +1,42 @@
-const path = require('path');
+const http = require('http');
+const express = require("express");
 const red = require('node-red');
 
-const usr = {flows: [], credentials: {}};
-const dir = path.normalize(process.cwd()+'/../');
+var flows = [], credentials = {};
 
 const settings = {
-  userDir: dir,
-  flowFile: dir+'flows.json',
-  httpAdminRoot: false,
+  userDir: process.cwd(),
+  credentialSecret: false,
   readOnly: true,
   logging: {
     console: {level: 'info', metrics: false, audit: false}
-  }
+  },
+  deploymentType: 'full'
 }
 
 red._settings = settings;
 
 red.start = (() => {
-  var start = red.start;
+  let start = red.start;
+  let doStart = true;
 
   return async (data={}, ...args) => {
-    usr.flows = data.flows || usr.flows;
-    usr.credentials = data.credentials || usr.credentials;
-
-    await red.stop();
-
-    red.init(undefined, settings);
-    red.runtime.storage.init(red);
-
-    await red.runtime.storage.saveFlows(usr);
-    return start(...args);
+    flows = data.flows || flows;
+    credentials = data.credentials || credentials;
+    if (doStart) {
+      let server = http.createServer(express());
+      red.init(server, settings);
+      await start(...args);
+      doStart = false;
+    }
+    for (let [k, v] of Object.entries(credentials)) {
+      await red.runtime._.nodes.addCredentials(k, v);
+    }
+    return red.runtime.flows.setFlows({
+      deploymentType: settings.deploymentType,
+      flows: {flows: flows}
+    });
   }
-}());
+})();
 
 module.exports = red;
