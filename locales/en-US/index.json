@@ -40,7 +40,6 @@
         "name": "Name",
         "email": "Email",
         "password": "Password",
-        "valueID": "Value ID",
         "type": "Type",
         "initialValue": "Initial value",
         "permission": {
@@ -74,24 +73,20 @@
             "xsd": "XSD",
             "namespace": "Namespace"
           }
-        },
-        "type_existing": "Type"
+        }
       },
       "placeholder": {
         "installationID": "Installation ID",
         "name": "Name",
         "email": "Wappsto Email",
         "password": "Wappsto Password",
-        "type": "Value type",
-        "period": "Period",
-        "delta": "Delta",
-        "type_existing": "Value type"
+        "type": "Value type"
       }
     },
     "export": {
       "btn": "Upload flows to Wappsto",
       "ok": "Uploaded",
-      "clickDeploy": "Deploy your flow",
+      "clickDeploy": "Deploy your flows",
       "tryAgain": "Try once again"
     },
     "get": {
