@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/wapp-api@latest/browser/wapp-api.js"></script>
+    <script src="functions.js"></script>
+    <style>
+    .centered {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 310px;
+      }
+      input {
+        width: 100%;
+        display: block;
+        margin-top: 5px;
+      }
+      label {
+        margin-top: 10px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="centered">
+      <div style="text-align:center">
+        <h4><a href="https://nodered.org/" target="_new">Node-RED</a> Open Weather Map example</h4>
+      </div>
+      <p>The first time, you need to wait for the permission pop-up (might take some time) and accept it.
+        Then, set the key and location to get the current temperature.</p>
+      <form>
+        <label for="apiKey">
+          Open Weather Map
+          <a href="https://home.openweathermap.org/api_keys" target="_new">API key</a>:
+        </label>
+        <input type="text" id="apiKey" name="apiKey">
+        <input type="submit" value="Set the key">
+      </form>
+
+      <form>
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country">
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city">
+
+        <input type="submit" value="Get temperature">
+      </form>
+
+      <p>Temperature: <span></span> &#8451;</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "node-red || exit 0"
+  },
+  "dependencies": {
+    "wapp-api": "^1.1.4",
+    "node-red": "^0.20.5",
+    "node-red-contrib-wappsto": "^0.0.2",
+    "node-red-node-openweathermap": "^0.2.1"
+  }
+}
