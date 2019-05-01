@@ -2,7 +2,7 @@
   {
     "id": "a918f5fb.58b898",
     "type": "tab",
-    "label": "Flow 1",
+    "label": "Weather",
     "disabled": false,
     "info": ""
   },
@@ -13,7 +13,7 @@
     "name": "temperature",
     "typee": "temperature",
     "installationID": "<change me>",
-    "email": "test",
+    "email": "<change me>",
     "password": "__PWRD__",
     "dataType": "number",
     "permission": "r",
@@ -34,7 +34,7 @@
     "name": "location",
     "typee": "location",
     "installationID": "<change me>",
-    "email": "test",
+    "email": "<change me>",
     "password": "__PWRD__",
     "dataType": "string",
     "permission": "w",
