@@ -18,7 +18,7 @@ Before you start, you need first:
   * a [Wappsto](https://wappsto.com/register) account (is free);
   * [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed on your computer. If you don't have them, you can use e.g. [nvm](https://github.com/nvm-sh/nvm) or [n](https://github.com/tj/n) to get them easily installed on your computer;
   * and [Node-RED](https://nodered.org/docs/getting-started/installation).
-  
+
 There are at least two ways to install Node-RED:
 
 ### 1. package.json (faster)
@@ -76,7 +76,7 @@ The `listener` node (1) can be found under the "*input*" category whereas the `w
 ## Create your first flow
 
 This section describes a very basic scenario on how you can pass data throught Wappsto.
- 
+
 ### 1. Sending data to Wappsto
 
 Add `inject` and `writer` nodes to the canvas and wire them together (1). Next, click on the `writer` node to open the editing view and add a new "*Value*" (2). Once you enter the "*Value*" view, provide your Wappsto email and password (3), and click the "*Get*" button (4) to retrieve a new installation ID.
@@ -101,7 +101,7 @@ In order to receive and see the injected data, add `listener` and `debug` nodes 
 
 This flow example extends the previous scenario by adding an `openweathermap` [node](https://flows.nodered.org/node/node-red-node-openweathermap) and 2 core "*function*" nodes to the flow.
 
-### 1. Prerequisite 
+### 1. Prerequisite
 
 You need to have the weather node installed, e.g. execute the following command in your `~/.node-red` directory:
 
@@ -133,6 +133,26 @@ Apart from providing the connectivity, this packages enables to run Node-RED flo
 </div>
 
 Try to make your own modifications to the files and play around. This is just the beginning!
+
+To run Node-RED flows in Wappsto, the [*main.js*](weather_example/background/main.js) file includes these lines:
+
+```javascript
+const RED = require('node-red-contrib-wappsto/red');
+```
+
+It creates a wrapper for Node-RED runtime. Aside from exposing the runtime object, it gives possibility to modify the [Runtime Configuration](https://nodered.org/docs/configuration) with ease. Before you start the runtime, you can modify `RED._settings` object to apply your own configuration.
+
+The next crucial line is:
+
+```javascript
+RED.start({ flows: ..., credentials: ... });
+```
+
+it accepts an object as argument with the following keys:
+* `flows` (object): Node-RED flows.
+* `credentials` (object): decoded flows credentials.
+
+It runs or restarts Node-RED runtime with the provided arguments and returns a `Promise` object so that you can chain `than` function.
 
 ## Manage nodes from Wappsto
 
