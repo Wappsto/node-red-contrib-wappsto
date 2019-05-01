@@ -99,6 +99,10 @@ In order to receive and see the injected data, add `listener` and `debug` nodes 
 
 Click on the `inject` node (11) and go to the "*Debug*" tab to see the injected timestamp (12).
 
+<div align="center">
+  <img width="32%" src="readme_img/debug.png">
+</div>
+
 ## Weather flow example
 
 This flow example extends the previous scenario by adding an `openweathermap` [node](https://flows.nodered.org/node/node-red-node-openweathermap) and 2 core "*function*" nodes to the flow.
