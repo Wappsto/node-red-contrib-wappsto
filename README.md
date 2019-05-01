@@ -121,9 +121,9 @@ This flow example extends the previous scenario by adding an `openweathermap` [n
 
 ### 2. Import the example
 
-Copy the content of [this file](weather_example/background/flows.json), paste it to `Settings > Import > Clipboard` (press Ctrl+I keys to quickly open it) input field, click the "*Import*" button, and open the "*Weather*" tab (1).
+Copy the content of [this file](weather_example/background/flows.json), paste it to `Settings > Import > Clipboard` (press Ctrl+I keys to quickly open it) input field, click the "*Import*" button, and open the "*Weather*" tab.
 
-Rember to replace "*email*" and "*password*" with your Wappsto credenitals and get a new installation ID. Use the same ID in both of the "*Values*". Also, place the API key into the `openweathermap` node.
+Rember to replace "*email*" and "*password*" with your Wappsto credentials and get a new installation ID. Use the same ID in both of the "*Values*". Also, place the API key into the `openweathermap` node.
 
 <div align="center">
   <img width="80%" src="readme_img/example.png">
