@@ -1,0 +1,197 @@
+[
+  {
+    "id": "a918f5fb.58b898",
+    "type": "tab",
+    "label": "Weather",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "e5de2fe4.21361",
+    "type": "wappsto-value",
+    "z": "",
+    "name": "temperature",
+    "typee": "temperature",
+    "installationID": "<change me>",
+    "email": "<change me>",
+    "password": "__PWRD__",
+    "dataType": "number",
+    "permission": "r",
+    "isNew": true,
+    "dataTypeObj": {
+      "min": -100,
+      "max": 100,
+      "step": 0.01,
+      "unit": "℃",
+      "si_conversion": ""
+    },
+    "initialValue": "25"
+  },
+  {
+    "id": "787a502e.eee34",
+    "type": "wappsto-value",
+    "z": "",
+    "name": "location",
+    "typee": "location",
+    "installationID": "<change me>",
+    "email": "<change me>",
+    "password": "__PWRD__",
+    "dataType": "string",
+    "permission": "w",
+    "isNew": true,
+    "dataTypeObj": {
+      "encoding": ""
+    },
+    "initialValue": "{\"city\":\"Copenhagen\",\"country\":\"Denmark\"}"
+  },
+  {
+    "id": "8bbab80f.0ec288",
+    "type": "json",
+    "z": "a918f5fb.58b898",
+    "name": "",
+    "property": "payload",
+    "action": "obj",
+    "pretty": false,
+    "x": 250,
+    "y": 240,
+    "wires": [
+      [
+        "c794000d.0afa5"
+      ]
+    ]
+  },
+  {
+    "id": "c794000d.0afa5",
+    "type": "change",
+    "z": "a918f5fb.58b898",
+    "name": "change",
+    "rules": [
+      {
+        "t": "set",
+        "p": "location",
+        "pt": "msg",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 380,
+    "y": 240,
+    "wires": [
+      [
+        "69e6e96.5b42f18"
+      ]
+    ]
+  },
+  {
+    "id": "69e6e96.5b42f18",
+    "type": "openweathermap",
+    "z": "a918f5fb.58b898",
+    "name": "weather",
+    "wtype": "current",
+    "lon": "",
+    "lat": "",
+    "city": "",
+    "country": "",
+    "language": "en",
+    "x": 520,
+    "y": 240,
+    "wires": [
+      [
+        "4abeb318.1ebb5c"
+      ]
+    ]
+  },
+  {
+    "id": "4abeb318.1ebb5c",
+    "type": "change",
+    "z": "a918f5fb.58b898",
+    "name": "change",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "payload.tempc",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 660,
+    "y": 240,
+    "wires": [
+      [
+        "1a8b3058.3eac1",
+        "36d4379c.bedf48"
+      ]
+    ]
+  },
+  {
+    "id": "7b99006f.f85ed",
+    "type": "inject",
+    "z": "a918f5fb.58b898",
+    "name": "",
+    "topic": "",
+    "payload": "{\"city\":\"Aalborg\",\"country\":\"Denmark\"}",
+    "payloadType": "str",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "x": 110,
+    "y": 280,
+    "wires": [
+      [
+        "8bbab80f.0ec288"
+      ]
+    ]
+  },
+  {
+    "id": "1a8b3058.3eac1",
+    "type": "debug",
+    "z": "a918f5fb.58b898",
+    "name": "debug",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "x": 810,
+    "y": 280,
+    "wires": []
+  },
+  {
+    "id": "94d48829.588de8",
+    "type": "wappsto-listener in",
+    "z": "a918f5fb.58b898",
+    "value": "787a502e.eee34",
+    "name": "location",
+    "x": 90,
+    "y": 200,
+    "wires": [
+      [],
+      [
+        "8bbab80f.0ec288"
+      ]
+    ]
+  },
+  {
+    "id": "36d4379c.bedf48",
+    "type": "wappsto-writer out",
+    "z": "a918f5fb.58b898",
+    "value": "e5de2fe4.21361",
+    "name": "temperature",
+    "permission": "r",
+    "x": 830,
+    "y": 200,
+    "wires": []
+  }
+]
