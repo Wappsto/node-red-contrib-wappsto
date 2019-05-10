@@ -16,7 +16,7 @@ This module wil help your apps and devices to work together in new interesting w
 
 Before you start, you need first:
   * a [Wappsto](https://wappsto.com/register) account (is free);
-  * [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed on your computer. If you don't have them, you can use e.g. [nvm](https://github.com/nvm-sh/nvm) or [n](https://github.com/tj/n) to get them easily installed on your computer;
+  * [Node.js](https://nodejs.org/en/) (preferably LTS version) and [npm](https://www.npmjs.com/) installed on your computer. If you don't have them, you can use e.g. [nvm](https://github.com/nvm-sh/nvm) or [n](https://github.com/tj/n) to get them easily installed on your computer;
   * and [Node-RED](https://nodered.org/docs/getting-started/installation).
 
 There are at least two ways to install Node-RED:
